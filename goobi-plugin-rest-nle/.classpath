@@ -14,8 +14,8 @@
 	<classpathentry kind="lib" path="/Goobi/webapp/WEB-INF/lib/jackson-jaxrs-json-provider-2.6.3.jar"/>
 	<classpathentry kind="lib" path="/Goobi/webapp/WEB-INF/lib/jersey-common.jar"/>
 	<classpathentry kind="lib" path="/Goobi/webapp/WEB-INF/lib/log4j-1.2.16.jar"/>
-	<classpathentry kind="lib" path="/Goobi/webapp/WEB-INF/lib/jackson-annotations-2.5.0.jar"/>
-	<classpathentry kind="lib" path="/Goobi/webapp/WEB-INF/lib/jackson-core-2.5.0.jar"/>
-	<classpathentry kind="lib" path="/Goobi/webapp/WEB-INF/lib/jackson-databind-2.5.0.jar"/>
+	<classpathentry kind="lib" path="/Goobi/webapp/WEB-INF/lib/jackson-annotations-2.6.0.jar"/>
+	<classpathentry kind="lib" path="/Goobi/webapp/WEB-INF/lib/jackson-core-2.6.6.jar"/>
+	<classpathentry kind="lib" path="/Goobi/webapp/WEB-INF/lib/jackson-databind-2.6.6.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
