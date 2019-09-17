@@ -1,6 +1,6 @@
 # Goobi workflow Plugin: goobi-plugin-rest-nle
 
-Goobi rest plugin for National Library of Estonia to create Goobi processes from outside applications.
+Goobi rest plugin for National Library of Estonia to create Goobi processes from outside applications
 
 ## Plugin details
 
