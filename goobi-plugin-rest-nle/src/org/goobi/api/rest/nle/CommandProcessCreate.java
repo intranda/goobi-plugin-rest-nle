@@ -59,9 +59,9 @@ public class CommandProcessCreate {
     @Consumes({ MediaType.TEXT_XML, MediaType.APPLICATION_XML })
     @Produces(MediaType.TEXT_XML)
     public Response createProcessForNle(NleCreationRequest req, @Context final HttpServletResponse response) {
-        
-    	NleCreationResponse cr = new NleCreationResponse();
-        String processtitle = UghHelper.convertUmlaut(req.getIdentifier().replace(":","_")).toLowerCase();
+
+        NleCreationResponse cr = new NleCreationResponse();
+        String processtitle = UghHelper.convertUmlaut(req.getIdentifier().replace(":", "_")).toLowerCase();
         processtitle.replaceAll("[\\W]", "");
 
         Process p = ProcessManager.getProcessByTitle(processtitle);
@@ -121,14 +121,14 @@ public class CommandProcessCreate {
         process.setTitel(processtitle);
 
         if (StringUtils.isNotBlank(req.getProject())) {
-            List <Project> projects = ProjectManager.getAllProjects();
+            List<Project> projects = ProjectManager.getAllProjects();
             for (Project proj : projects) {
-				if (proj.getTitel().equals(req.getProject())){
-					process.setProjekt(proj);
-				}
-			}
+                if (proj.getTitel().equals(req.getProject())) {
+                    process.setProjekt(proj);
+                }
+            }
         }
-        
+
         try {
             NeuenProzessAnlegen(process, template, fileformat, prefs);
         } catch (Exception e) {
@@ -137,7 +137,7 @@ public class CommandProcessCreate {
             Response resp = Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(cr).build();
             return resp;
         }
-        
+
         if (StringUtils.isNotBlank(req.getIdentifier())) {
             Processproperty pp = new Processproperty();
             pp.setTitel("Identifier");
@@ -179,8 +179,6 @@ public class CommandProcessCreate {
         Response resp = Response.status(Response.Status.CREATED).entity(cr).build();
         return resp;
     }
-    
-    
 
     private Process cloneTemplate(Process template) {
         Process process = new Process();
@@ -203,7 +201,7 @@ public class CommandProcessCreate {
     private Fileformat getOpacRequest(String opacIdentifier, Prefs prefs, String myCatalogue) throws Exception {
         // get logical data from opac
         ConfigOpacCatalogue coc = ConfigOpac.getInstance().getCatalogueByName(myCatalogue);
-//        ConfigOpacCatalogue coc = new ConfigOpac().getCatalogueByName(myCatalogue);
+        //        ConfigOpacCatalogue coc = new ConfigOpac().getCatalogueByName(myCatalogue);
         IOpacPlugin myImportOpac = (IOpacPlugin) PluginLoader.getPluginByTitle(PluginType.Opac, coc.getOpacType());
         Fileformat ff = myImportOpac.search("12", opacIdentifier, coc, prefs);
         Metadata md = new Metadata(prefs.getMetadataTypeByName("singleDigCollection"));
@@ -233,7 +231,7 @@ public class CommandProcessCreate {
 
             step.setBearbeitungszeitpunkt(process.getErstellungsdatum());
             step.setEditTypeEnum(StepEditType.AUTOMATIC);
-            LoginBean loginForm = (LoginBean) Helper.getManagedBeanValue("#{LoginForm}");
+            LoginBean loginForm = Helper.getLoginBean();
             if (loginForm != null) {
                 step.setBearbeitungsbenutzer(loginForm.getMyBenutzer());
             }
