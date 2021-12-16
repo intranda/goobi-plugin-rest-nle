@@ -6,7 +6,7 @@
   <properties>
     <jar.name>plugin_nle_rest</jar.name>
     <dest.folder>/opt/digiverso/goobi/plugins/GUI/</dest.folder>
-    <goobi.version>21.11.4</goobi.version>
+    <goobi.version>21.11.5</goobi.version>
   </properties>
   <distributionManagement>
     <repository>
