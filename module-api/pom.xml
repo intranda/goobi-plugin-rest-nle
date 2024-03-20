@@ -5,6 +5,6 @@
     <artifactId>plugin-rest-nle</artifactId>
     <version>24.03-SNAPSHOT</version>
   </parent>
-  <artifactId>plugin-rest-nle-base</artifactId>
+  <artifactId>plugin-rest-nle-api</artifactId>
   <packaging>jar</packaging>
 </project>
